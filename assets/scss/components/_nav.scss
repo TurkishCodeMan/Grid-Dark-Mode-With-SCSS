@@ -1,0 +1,22 @@
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0px;
+  &-logo {
+    display: flex;
+    align-items: center;
+
+    i {
+      font-size: 28px;
+      margin: 0px 12px;
+    }
+  }
+  &-links {
+    display: flex;
+
+    .nav-link {
+      font-size: 18px;
+    }
+  }
+}

@@ -1,0 +1,115 @@
+// html {
+//   --lightBtn: #fe016c;
+//   --lightBg: #fff;
+//   --lightColor: #232323;
+// }
+// html[data-theme="dark"] {
+//   background: var(--lightBg);
+//   --lightBtn: #ffbd07;
+//   --lightBg: #232323;
+//   --lightColor: #fff;
+// }
+
+:root {
+  --colorBtn: #fe016c;
+  --colorBg: rgb(199, 194, 194);
+  --colorColor: #232323;
+  --dashboardperson: #f8f8fa;
+  --textColor: #161616;
+  --shadowColor: 250, 88, 253;
+  --shadowAlpha: 0.8;
+  --shadow: 4px 6px 12px rgba(var(--shadowColor), var(--shadowAlpha));
+}
+
+.dark-mode {
+  --colorBtn: #ffbd07;
+  --colorBg: #232323;
+  --colorColor: rgb(202, 199, 199);
+  --dashboardperson: #161616;
+  --textColor: #ddd;
+  --shadowColor: 110, 10, 123;
+  --shadowAlpha: 0.8;
+  --shadow: 4px 4px 8px rgba(var(--shadowColor), var(--shadowAlpha));
+}
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 8px;
+  overflow: hidden;
+  input {
+    display: none;
+    &:checked ~ label div {
+      transform: translateX(1.6em);
+    }
+    &:checked ~ label::before {
+      content: "Dark Mode";
+    }
+  }
+  &-label {
+    background-color: azure;
+    width: 4em;
+    height: 2em;
+    border-radius: 10em;
+    border: 2px solid var(--colorBtn);
+    position: relative;
+    cursor: pointer;
+
+    &-div {
+      width: 1.8em;
+      height: 1.6em;
+      background-color: var(--colorBtn);
+      position: absolute;
+      border-radius: 10em;
+      top: 0.1em;
+      left: 0.2em;
+      @include ease;
+    }
+    &::before {
+      content: "Light Mode";
+      position: absolute;
+      display: inline-block;
+      width: 12em;
+      left: -8em;
+      top: 0.4em;
+    }
+  }
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+  background: var(--dashboardperson);
+  border-radius: 18px;
+  overflow: hidden;
+  height: 700px;
+  color: var(--textColor);
+  box-shadow: var(--shadow);
+  @include large{
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  &-person {
+    flex: 0;
+    padding: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: var(--colorBg);
+    &-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+  }
+  &-detail {
+    flex: 1;
+    padding: 36px;
+    width: 100%;
+    height: 100%;
+  }
+}
